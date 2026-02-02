@@ -1,18 +1,152 @@
 <!DOCTYPE html>
-<title>Site Maintenance</title>
-<style>
-  body { text-align: center; padding: 150px; }
-  h1 { font-size: 50px; }
-  body { font: 20px Helvetica, sans-serif; color: #333; }
-  article { display: block; text-align: left; width: 650px; margin: 0 auto; }
-  a { color: #dc8100; text-decoration: none; }
-  a:hover { color: #333; text-decoration: none; }
-</style>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RIGHTRUE | Protocolo Iniciado</title>
+    <style>
+        /* --- CONFIGURACIÓN BASE --- */
+        :root {
+            --bg-color: #050505;
+            --text-color: #e0e0e0;
+            --neon-cyan: #00f3ff;
+            --neon-pink: #bc13fe;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
 
-<article>
-    <h1>We&rsquo;ll be back soon!</h1>
-    <div>
-        <p>Sorry for the inconvenience but we&rsquo;re performing some maintenance at the moment.</p>
-        <p>&mdash; The Team</p>
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada tipo terminal */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* --- EFECTO DE FONDO (GRID) --- */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: 
+                linear-gradient(transparent 95%, var(--neon-cyan) 100%),
+                linear-gradient(90deg, transparent 95%, var(--neon-cyan) 100%);
+            background-size: 40px 40px;
+            opacity: 0.1;
+            z-index: -1;
+            transform: perspective(500px) rotateX(60deg);
+            transform-origin: top;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .container {
+            max-width: 800px;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        /* --- LOGO / TÍTULO CON EFECTO GLITCH --- */
+        h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            text-shadow: 2px 2px var(--neon-pink), -2px -2px var(--neon-cyan);
+            margin-bottom: 10px;
+            position: relative;
+        }
+
+        .subtitle {
+            color: var(--neon-cyan);
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            border-bottom: 1px solid var(--neon-cyan);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* --- TARJETAS DE CONTENIDO --- */
+        .card {
+            background: var(--glass);
+            border: 1px solid var(--neon-pink);
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 0 10px var(--neon-pink);
+            transition: transform 0.3s ease;
+            text-align: left;
+        }
+
+        .card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 20px var(--neon-cyan);
+            border-color: var(--neon-cyan);
+        }
+
+        .card h2 {
+            color: var(--neon-cyan);
+            margin-top: 0;
+            border-left: 4px solid var(--neon-pink);
+            padding-left: 10px;
+        }
+
+        /* --- BOTONES --- */
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 30px;
+            background: transparent;
+            border: 2px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: var(--neon-cyan);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            font-size: 0.8rem;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>RIGHTRUE</h1>
+        <div class="subtitle">System Status: ONLINE // Privacy Level: MAX</div>
+
+        <div class="card">
+            <h2>> ¿Quién soy?</h2>
+            <p>Explorando los límites de la privacidad, el software libre y la soberanía digital. Aquí documento mis experimentos con servidores locales, IA y seguridad.</p>
+        </div>
+
+        <div class="card">
+            <h2>> Proyectos</h2>
+            <ul>
+                <li>[NAS] Configuración TrueNAS & Nextcloud</li>
+                <li>[AI] Generación de imágenes local (Flux/ComfyUI)</li>
+                <li>[SEC] Qubes OS & Hardening</li>
+            </ul>
+        </div>
+
+        <a href="https://github.com/tuusuario" class="btn">Acceder al Terminal (GitHub)</a>
     </div>
-</article>
+
+    <footer>
+        <p>&copy; 2026 RIGHTRUE.COM // NO TRACKING DETECTED</p>
+    </footer>
+
+</body>
+</html>
