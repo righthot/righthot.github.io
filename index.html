@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RIGHTRUE | Protocolo Iniciado</title>
+    <title>RIGHTRUE | Secure Connection</title>
     <style>
-        /* --- CONFIGURACIÓN BASE --- */
+        /* --- CORE CONFIG --- */
         :root {
             --bg-color: #050505;
             --text-color: #e0e0e0;
@@ -26,7 +26,7 @@
             overflow-x: hidden;
         }
 
-        /* --- EFECTO 1: CRT SCANLINES (Monitor Viejo) --- */
+        /* --- VISUAL FX: SCANLINES --- */
         body::after {
             content: " ";
             display: block;
@@ -35,10 +35,10 @@
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
             z-index: 100;
             background-size: 100% 2px, 3px 100%;
-            pointer-events: none; /* Permite hacer clic a través del efecto */
+            pointer-events: none;
         }
 
-        /* --- FONDO DE REJILLA --- */
+        /* --- BACKGROUND GRID --- */
         body::before {
             content: "";
             position: fixed;
@@ -67,13 +67,14 @@
             z-index: 10;
         }
 
-        /* --- EFECTO 2: GLITCH ANIMATION (Fallo en el título) --- */
+        /* --- GLITCH TITLE --- */
         h1 {
             font-size: 4rem;
             text-transform: uppercase;
             letter-spacing: 5px;
             position: relative;
             color: var(--text-color);
+            margin-bottom: 10px;
         }
 
         h1::before, h1::after {
@@ -115,7 +116,7 @@
             100% { clip: rect(10px, 9999px, 50px, 0); }
         }
 
-        /* --- EFECTO 3: TYPEWRITER (Escritura Terminal) --- */
+        /* --- TYPEWRITER SUBTITLE --- */
         .subtitle {
             color: var(--neon-cyan);
             font-size: 1.2rem;
@@ -132,7 +133,7 @@
             50% { border-color: var(--neon-cyan); }
         }
 
-        /* --- TARJETAS --- */
+        /* --- INFO CARDS --- */
         .card {
             background: var(--glass);
             border: 1px solid var(--neon-pink);
@@ -142,7 +143,6 @@
             transition: transform 0.3s ease;
             text-align: left;
             position: relative;
-            overflow: hidden;
         }
 
         .card:hover {
@@ -154,9 +154,21 @@
         .card h2 {
             color: var(--neon-cyan);
             margin-top: 0;
+            text-transform: uppercase;
+            font-size: 1.4rem;
         }
 
-        /* --- BOTONES --- */
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li::before {
+            content: "> ";
+            color: var(--neon-pink);
+        }
+
+        /* --- BUTTON --- */
         .btn {
             display: inline-block;
             margin-top: 20px;
@@ -168,8 +180,6 @@
             font-weight: bold;
             text-transform: uppercase;
             transition: 0.3s;
-            position: relative;
-            overflow: hidden;
             letter-spacing: 2px;
         }
 
@@ -191,37 +201,33 @@
 
     <div class="container">
         <h1 data-text="RIGHTRUE">RIGHTRUE</h1>
-        
         <div class="subtitle" id="typewriter"></div>
 
         <div class="card">
-            <h2>> /who i am</h2>
-            <p>Explorando los límites de la privacidad, 
-                el software libre y la soberanía digital.
-                Documentando experimentos en hardware propio 
-                y seguridad ofensiva.</p>
+            <h2>/whoami</h2>
+            <p>Operative in the digital shadows. Dedicated to data sovereignty, encryption standards, and bypassing censorship grids. Identity is irrelevant; code is truth.</p>
         </div>
 
         <div class="card">
-            <h2>> /projects</h2>
-            <ul style="list-style-type: square; padding-left: 20px;">
-                <li> NAS </li>
-                <li> AI </li>
-                <li> OffSec </li>
+            <h2>/active_modules</h2>
+            <ul>
+                <li>[INFRA] Decentralized Storage Nodes</li>
+                <li>[R&D] Neural Network Architecture</li>
+                <li>[DEF] Counter-Surveillance Protocols</li>
             </ul>
         </div>
 
-        <a href="https://github.com" class="btn">INITIALIZE TERMINAL</a>
+        <a href="https://github.com/tuusuario" class="btn">Establish Uplink</a>
     </div>
 
     <footer>
-        <p>&copy; 2026 RIGHTRUE® // ENCRYPTED CONNECTION</p>
+        <p>&copy; 2026 RIGHTRUE // ENCRYPTED NODE</p>
     </footer>
 
     <script>
-        // SCRIPT PARA EFECTO DE ESCRITURA
-        const text = "System Status: ONLINE // Privacy Level: MAX";
-        const speed = 50; // Velocidad de escritura en ms
+        // Texto de escritura automática actualizado
+        const text = "User: ANONYMOUS // Status: CONNECTED";
+        const speed = 50;
         let i = 0;
         
         function typeWriter() {
@@ -231,8 +237,6 @@
                 setTimeout(typeWriter, speed);
             }
         }
-
-        // Iniciar efecto cuando carga la página
         window.onload = typeWriter;
     </script>
 
