@@ -69,12 +69,13 @@
 
         /* --- GLITCH TITLE --- */
         h1 {
-            font-size: 4rem;
+            font-size: 3.5rem; /* Reducido un poco para móviles */
             text-transform: uppercase;
             letter-spacing: 5px;
             position: relative;
             color: var(--text-color);
             margin-bottom: 10px;
+            word-wrap: break-word; /* Evita desbordamiento en nombres largos */
         }
 
         h1::before, h1::after {
@@ -116,21 +117,28 @@
             100% { clip: rect(10px, 9999px, 50px, 0); }
         }
 
-        /* --- TYPEWRITER SUBTITLE --- */
+        /* --- TYPEWRITER SUBTITLE (MEJORADO PARA MÓVIL) --- */
         .subtitle {
             color: var(--neon-cyan);
             font-size: 1.2rem;
             margin-bottom: 50px;
-            border-right: 2px solid var(--neon-cyan);
             display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            animation: blink-caret 0.75s step-end infinite;
+            white-space: pre-wrap; /* Permite saltos de línea (\n) */
+            line-height: 1.5;
+            text-align: left; /* Alineado a la izquierda para mejor lectura en 2 líneas */
+        }
+
+        /* Nuevo cursor que funciona en múltiples líneas */
+        .subtitle::after {
+            content: '█'; 
+            display: inline-block;
+            margin-left: 5px;
+            animation: blink-caret 1s infinite;
         }
 
         @keyframes blink-caret {
-            from, to { border-color: transparent }
-            50% { border-color: var(--neon-cyan); }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
 
         /* --- INFO CARDS --- */
@@ -204,12 +212,12 @@
         <div class="subtitle" id="typewriter"></div>
 
         <div class="card">
-            <h2> >/whoami</h2>
+            <h2>/whoami</h2>
             <p>Operative in the digital shadows. Dedicated to data sovereignty, encryption standards, and bypassing censorship grids. Identity is irrelevant; code is truth.</p>
         </div>
 
         <div class="card">
-            <h2> >/active_modules</h2>
+            <h2>/active_modules</h2>
             <ul>
                 <li>[INFRA] Decentralized Storage Nodes</li>
                 <li>[R&D] Neural Network Architecture</li>
@@ -217,22 +225,22 @@
             </ul>
         </div>
 
-        <a href="https://github.com/tuusuario" class="btn">[ESTABLISH_UPLINK]</a>
+        <a href="https://github.com/tuusuario" class="btn">Establish Uplink</a>
     </div>
 
     <footer>
-        <p>&copy; 2026 RIGHTRUE // ENCRYPTED_NODE</p>
+        <p>&copy; 2026 RIGHTRUE // ENCRYPTED NODE</p>
     </footer>
 
     <script>
-        // Texto de escritura automática actualizado
-        const text = "User: ANONYMOUS // Status: CONNECTED";
+        // \n introduce el salto de línea
+        const text = "User: ANONYMOUS\nStatus: CONNECTED";
         const speed = 50;
         let i = 0;
         
         function typeWriter() {
             if (i < text.length) {
-                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                document.getElementById("typewriter").textContent += text.charAt(i);
                 i++;
                 setTimeout(typeWriter, speed);
             }
